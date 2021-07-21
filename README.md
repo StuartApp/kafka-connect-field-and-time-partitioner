@@ -1,3 +1,24 @@
+## Stuart Customization
+
+This is a fork of https://github.com/canelmas/kafka-connect-field-and-time-partitioner
+
+We will use branch `stuart-1.0.0` as the main branch, this is based on the release 1.0.0 of the original repo 
+(1.0.0 is the last release available at writing time - 2021-07-20).
+
+#### How to create the jar
+```bash
+git checkout stuart-1.0.0
+mvn clean package
+```
+The jar generated in the target folder must be added to the [external-plugins folder](https://github.com/StuartApp/kafka-connect/tree/master/plugins/external-plugins).
+
+#### Changes applied in stuart version
+
+- use the same kafka version used in stuart kafka cluster
+- add the confluent repository to retrieve the dependencies
+- change mvn compiler version to make it work with the newer versions of java
+- remove a wrong error log that appears when we use avro instead of json files(`ERROR Unsupported type 'string' for partition field.`)
+
 ### Kafka Connect Field and Time Based Partitioner
 
 - Partition initially by a custom field and then by time.
