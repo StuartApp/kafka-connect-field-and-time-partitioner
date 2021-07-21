@@ -133,18 +133,7 @@ public final class FieldAndTimeBasedPartitioner<T> extends TimeBasedPartitioner<
 
             Object value = record.value();
 
-            if (value instanceof Struct) {
-
-                final Object field = DataUtils.getNestedFieldValue(value, fieldName);
-                final Schema fieldSchema = DataUtils.getNestedField(record.valueSchema(), fieldName).schema();
-
-                // changed this log to warn level because otherwise it gives an error with type string when reading from
-                // Avro. The error is not risen when reading strings from json
-                FieldAndTimeBasedPartitioner.log.warn("Unsupported type '{}' for partition field.", fieldSchema.type().getName());
-
-                return (String) field;
-
-            } else if (value instanceof Map) {
+            if (value instanceof Struct || value instanceof Map) {
 
                 return (String) DataUtils.getNestedFieldValue(value, fieldName);
 
