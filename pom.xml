@@ -22,7 +22,7 @@
 
     <groupId>com.canelmas.kafka</groupId>
     <artifactId>connect-fieldandtime-partitioner</artifactId>
-    <version>stuart-1.0.0</version>
+    <version>stuart-1.1.0</version>
     <build>
         <plugins>
             <plugin>
@@ -39,21 +39,15 @@
 
     <repositories>
         <repository>
-            <id>stuart-public</id>
-            <name>stuart-public</name>
-            <url>http://nexus.internal.stuart.com:8081/repository/maven-public</url>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
         </repository>
     </repositories>
-
-    <properties>
-        <confluent.version>5.4.0</confluent.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>io.confluent</groupId>
             <artifactId>kafka-connect-storage-partitioner</artifactId>
-            <version>${confluent.version}</version>
+            <version>10.0.0</version>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>
@@ -63,7 +57,7 @@
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>connect-api</artifactId>
-            <version>${confluent.version}-ccs</version>
+            <version>7.4.0-ccs</version>
         </dependency>
     </dependencies>
 
